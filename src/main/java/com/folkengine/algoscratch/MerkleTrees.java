@@ -1,5 +1,8 @@
 package com.folkengine.algoscratch;
 
+import com.google.common.hash.Hashing;
+
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,31 +50,14 @@ public class MerkleTrees {
                 right = tempTxList.get(index);
             }
 
-            // sha2 hex value
-            String sha2HexValue = getSHA2HexValue(left + right);
+            String sha2HexValue = Hashing.sha256()
+                    .hashString(left + right, StandardCharsets.UTF_8)
+                    .toString();
             newTxList.add(sha2HexValue);
             index++;
         }
 
         return newTxList;
-    }
-
-    public String getSHA2HexValue(String str) {
-        byte[] cipher_byte;
-        try{
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.update(str.getBytes());
-            cipher_byte = md.digest();
-            StringBuilder sb = new StringBuilder(2 * cipher_byte.length);
-            for(byte b: cipher_byte) {
-                sb.append(String.format("%02x", b&0xff) );
-            }
-            return sb.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return "";
     }
 
     public String getRoot() {

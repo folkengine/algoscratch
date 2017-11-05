@@ -50,7 +50,9 @@ junitPlatform {
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.guava:guava:22.0'
+    compile group: 'com.google.guava', name: 'guava', version: '23.3-jre'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.9.1'
+    runtime group: 'org.apache.logging.log4j', name: 'log4j-jul', version: '2.9.1'
 
     // Use JUnit test framework
     testCompile("org.junit.jupiter:junit-jupiter-api:5.0.1")
