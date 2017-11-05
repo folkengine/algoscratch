@@ -2,9 +2,13 @@ package com.folkengine.algoscratch;
 
 import com.google.common.base.Joiner;
 import com.google.common.primitives.Chars;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 import java.util.*;
 
+@Data
 public class CharPurmutations {
 
     Set<Character> chars;

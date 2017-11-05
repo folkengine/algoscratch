@@ -11,10 +11,8 @@ class CharPurmutationsTest {
 
     @Test
     void stringToUniqueChars() {
-        Set<Character> chars = new HashSet<>();
-        chars.add('a');
-        chars.add('b');
-        chars.add('c');
+
+        Set<Character> chars = Set.of('a', 'b', 'c');
 
         assertEquals(chars, CharPurmutations.stringToUniqueChars("ccbcaabaabcbaaabb"));
     }

@@ -66,6 +66,8 @@ dependencies {
     // Use JUnit test framework
     testCompile("org.junit.jupiter:junit-jupiter-api:5.0.1")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.1")
+
+    compile name: 'lombok-1.16.19'
 }
 
 // Define the main class for the application
